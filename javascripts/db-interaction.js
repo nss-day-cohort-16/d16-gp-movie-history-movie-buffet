@@ -32,7 +32,24 @@ function getMovies(input) {
 
 function domPop(data){
 	var imdb = Math.floor(data.imdbRating / 2);
-	$("#movieWrap").html(`<div class="col-md-4"><img src="${data.Poster}"><h2>${data.Title}</h2><h3>${data.Director}</h3><h3>${data.Released}</h3><h3>${data.Actors}</h3><h3>${imdb}</h3><button id="add" type="button">Add to Collection</button></div>`);
+	$("#movieWrap").html(`<div class="col-md-4"><img src="${data.Poster}"><h2>${data.Title}</h2><h3>${data.Director}</h3><h3>${data.Released}</h3><h3>${data.Actors}</h3><h3>${imdb}</h3><select id="starbar">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select><button id="add" type="button">Add to Collection</button></div>`);
+
+      $('#starbar').barrating('show', {
+        theme: 'fontawesome-stars'
+      });
 }
+
+
 
 module.exports = getMovies;
